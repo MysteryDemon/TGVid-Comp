@@ -14,7 +14,7 @@ class Config(object):
    
     # database config
     DB_URL  = os.environ.get("DB_URL","mongodb+srv://SNOWENCODER:SNOWENCODER@cluster0.hdxpxtg.mongodb.net/?retryWrites=true&w=majority")  # ⚠️ Required
-    DB_NAME  = os.environ.get("DB_NAME","SnowEncoderBot") 
+    DB_NAME  = os.environ.get("DB_NAME","SnowEncodingBot") 
 
     # Other Configs 
     ADMIN = int(os.environ.get("ADMIN", "6065594762")) # ⚠️ Required
