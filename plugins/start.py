@@ -69,9 +69,6 @@ async def Files_Option(bot:Client, message:Message):
                    [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{message.from_user.id}")],
                     [InlineKeyboardButton("Sᴄʀᴇᴇɴsʜᴏᴛ Gᴇɴᴇʀᴀᴛᴇ 🖼️", callback_data=f"screenshot-{message.from_user.id}")]]
         await SnowDev.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
-
-        await asyncio.sleep(30)
-        await SnowDev.delete()
         
     except FloodWait as e:
         
@@ -85,8 +82,6 @@ async def Files_Option(bot:Client, message:Message):
                     [InlineKeyboardButton("Sᴄʀᴇᴇɴsʜᴏᴛ Gᴇɴᴇʀᴀᴛᴇ 🖼️", callback_data=f"screenshot-{message.from_user.id}")]]
         await SnowDev.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
 
-        await asyncio.sleep(30)
-        await SnowDev.delete()
     except Exception as e:
         print(e)
 
