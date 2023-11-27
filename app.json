@@ -1,0 +1,46 @@
+{
+    "name": "Advance Compressor Bot",
+    "description": "Telegram File Compressor Bot ",
+    "logo": "https://graph.org/file/f118d554265c3e339c84f.jpg",
+    "keywords": ["Encoder Bot", "Mongo DB", "Telegram","python", "Video","Compressor","Encoder"],    
+    "repository": "https://github.com/Snowball-0/Advance-File-Encoder-Bot",
+    "success_url": "",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "Your APP ID From my.telegram.org ",
+            "value": "27744380",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Your API Hash From my.telegram.org ",
+            "value": "08f3fd61ccd1aa4aa6ccdb716fb68fed",
+            "required": true
+        },
+        "FORCE_SUB": {
+            "description": "Your force sub channel user name without [@] ",
+            "value": "-1001956303989",
+            "required": true 
+        },
+        "BOT_TOKEN": {
+            "description": "Your Bot Token From @BotFather",
+            "value": "6661094258:AAF-nDywkGsT7j1OhLTQTXFVJx0YoNaBvvY",
+            "required": true
+        },
+        "ADMIN": {
+            "description":"Add Your User ID multiple is use space to split",
+            "value": "6065594762",
+            "required": true
+        },
+        "LOG_CHANNEL": {
+            "description":"Bot Log Sending Channel (just create a private channel and add bot to admin and take channel id to add this variable) ⚠️ id startswith -100 must",
+            "value": "-1001971176803",
+            "required": true           
+        },
+        "DB_URL": {
+            "description": "Your Mongo DB URL Obtained From mongodb.com",
+            "value": "mongodb+srv://SNOWENCODER:SNOWENCODER@cluster0.hdxpxtg.mongodb.net/?retryWrites=true&w=majority",
+            "required": true
+        }
+    }
+}
