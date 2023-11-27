@@ -14,7 +14,7 @@ class Config(object):
    
     # database config
     DB_URL  = os.environ.get("DB_URL","")  # ⚠️ Required
-    DB_NAME  = os.environ.get("DB_NAME","") 
+    DB_NAME  = os.environ.get("DB_NAME","SnowEncodingBot") 
 
     # Other Configs 
     ADMIN = int(os.environ.get("ADMIN", '')) # ⚠️ Required
