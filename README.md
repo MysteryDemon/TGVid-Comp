@@ -24,6 +24,8 @@ Add in [@BotFather](https://t.me/BotFather)
     set_ffmpeg - Set Your Custom FFMPEG Code
     see_ffmpeg - See Your Custom FFMPEG Code
     del_ffmpeg - Delete Your Current FFMPEG Code
+    set_metadata - To set custom metadata code
+    see_ffmpeg - View custom ffmpeg code
     set_caption - Set Your Caption
     see_caption - See Your Caption
     del_caption - Delete Your Caption
