@@ -40,7 +40,7 @@
         "DB_URL": {
             "description": "Your Mongo DB URL Obtained From mongodb.com",
             "value": "",
-            "required": true
+            "required": false
         }
     }
 }
