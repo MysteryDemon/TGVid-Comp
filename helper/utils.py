@@ -168,7 +168,7 @@ async def skip(e, userid):
 
 async def CompressVideo(bot, query, ffmpegcode, c_thumb):
     UID = query.from_user.id
-    ms = await query.message.reply_text('Pʟᴇᴀsᴇ Wᴀɪᴛ...\n\n**Fᴇᴛᴄʜɪɴɢ Qᴜᴇᴜᴇ 👥**', reply_to_message_id = query.message.id)
+    ms = await query.message.edit('Pʟᴇᴀsᴇ Wᴀɪᴛ...\n\n**Fᴇᴛᴄʜɪɴɢ Qᴜᴇᴜᴇ 👥**')
     
 
     if os.path.isdir(f'ffmpeg/{UID}') and os.path.isdir(f'encode/{UID}'):
