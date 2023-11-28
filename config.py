@@ -14,10 +14,10 @@ class Config(object):
    
     # database config
     DB_URL  = os.environ.get("DB_URL","")  # ⚠️ Required
-    DB_NAME  = os.environ.get("DB_NAME","SnowEncodingBot") 
+    DB_NAME  = os.environ.get("DB_NAME","SnowEncoderBot") 
 
     # Other Configs 
-    ADMIN = int(os.environ.get("ADMIN", '')) # ⚠️ Required
+    ADMIN = int(os.environ.get("ADMIN", "")) # ⚠️ Required
     LOG_CHANNEL = int(os.environ.get('LOG_CHANNEL', '')) # ⚠️ Required
     BOT_UPTIME = BOT_UPTIME  = time.time()
     START_PIC = os.environ.get("START_PIC", "https://graph.org/file/15e82d7e665eccc8bd9c5.jpg")
@@ -32,5 +32,9 @@ class Config(object):
 
 **Original File Size:** {1}
 **Encoded File Size:** {2}
-**Compression Percentage:** {3}%
+**Compression Percentage:** {3}
+
+__Downloaded in {4}__
+__Encoded in {5}__
+__Uploaded in {6}__
 """
