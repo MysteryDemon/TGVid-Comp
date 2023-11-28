@@ -100,7 +100,7 @@ async def set_ffmpeg(client, message):
         ffmpeg = await client.ask(text=Txt.SEND_FFMPEG_CODE, chat_id=message.chat.id,
                             user_id=message.from_user.id, filters=filters.text, timeout=30, disable_web_page_preview=True)
     except TimeoutError:
-        await client.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /set_ffmpeg")
+        await message.reply_text("Error!!\n\nRequest timed out.\nRestart by using /set_ffmpeg", reply_to_message_id=message.id)
         return
         
     await db.set_ffmpegcode(message.from_user.id, ffmpeg.text)
@@ -147,7 +147,7 @@ async def set_metadata(client, message):
         metadata = await client.ask(text=Txt.SEND_METADATA, chat_id=message.chat.id, user_id=message.from_user.id, filters=filters.text, timeout=30)
 
     except TimeoutError:
-        await client.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /set_ffmpeg")
+        await message.reply_text("Error!!\n\nRequest timed out.\nRestart by using /set_ffmpeg", reply_to_message_id= metadata.id)
         return
     
     await db.set_metadata(message.from_user.id, metadata=metadata.text)
