@@ -5,7 +5,7 @@ import sys
 import humanize
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
-from helper.utils import Compress_Stats, skip, CompressVideo, download_screenshot
+from helper.utils import Compress_Stats, skip, CompressVideo
 from helper.database import db
 from script import Txt
 
