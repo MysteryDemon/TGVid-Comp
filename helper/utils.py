@@ -256,8 +256,8 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
             else:
                 ph_path = await bot.download_media(file.thumbs[0].file_id)
 
-        org = humanbytes(int(Path(File_Path).stat().st_size))
-        com = humanbytes(int((Path(Output_Path).stat().st_size)))
+        org = int(Path(File_Path).stat().st_size)
+        com = int((Path(Output_Path).stat().st_size))
         pe = 100 - ((com / org) * 100)
         per = str(f"{pe:.2f}")  + "%"
         eees = dt.now()
@@ -269,7 +269,7 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
                 UID,
                 document=Output_Path,
                 thumb=ph_path,
-                caption=Config.caption.format(filename, org, com , per, x, xx, xxx),
+                caption=Config.caption.format(filename, humanbytes(org), humanbytes(com) , per, x, xx, xxx),
                 progress=progress_for_pyrogram,
                 progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
         
