@@ -1,7 +1,7 @@
 import asyncio
 import math, time
-import random
-import subprocess
+from . import *
+from datetime import datetime as dt
 import sys
 import shutil
 import signal
@@ -83,6 +83,21 @@ def convert(seconds):
     minutes = seconds // 60
     seconds %= 60      
     return "%d:%02d:%02d" % (hour, minutes, seconds)
+
+def ts(milliseconds: int) -> str:
+    seconds, milliseconds = divmod(int(milliseconds), 1000)
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    tmp = (
+        ((str(days) + "d, ") if days else "")
+        + ((str(hours) + "h, ") if hours else "")
+        + ((str(minutes) + "m, ") if minutes else "")
+        + ((str(seconds) + "s, ") if seconds else "")
+        + ((str(milliseconds) + "ms, ") if milliseconds else "")
+    )
+    return tmp[:-2]
+
 
 async def send_log(b, u):
     if Config.LOG_CHANNEL is not None:
@@ -185,7 +200,7 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         
         
         await ms.edit('⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅɪɴɢ....**')
-
+        s = dt.now()
         try:
             if not os.path.isdir(Download_DIR) and not os.path.isdir(Output_DIR):
                 os.makedirs(Download_DIR)
@@ -200,6 +215,8 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         except Exception as e:
             return await ms.edit(str(e))
         
+        es = dt.now()
+        dtime = ts(int((es - s).seconds) * 1000)
 
         await ms.edit(
             "**🗜 Compressing...**",
@@ -231,23 +248,28 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
 
         # Clean up resources
         # Now Uploading to the User
+        ees = dt.now()
+        
         if (file.thumbs or c_thumb):
             if c_thumb:
                 ph_path = await bot.download_media(c_thumb)
             else:
                 ph_path = await bot.download_media(file.thumbs[0].file_id)
 
-        inp_size = humanbytes(int(Path(File_Path).stat().st_size))
-        outp_size = humanbytes(int((Path(Output_Path).stat().st_size)))
-        comp_percent = round((int((Path(Output_Path).stat().st_size))/int(Path(File_Path).stat().st_size))*100)
-        if comp_percent > 100:
-            comp_percent = "Undefined"
+        org = humanbytes(int(Path(File_Path).stat().st_size))
+        com = humanbytes(int((Path(Output_Path).stat().st_size)))
+        pe = 100 - ((com / org) * 100)
+        per = str(f"{pe:.2f}")  + "%"
+        eees = dt.now()
+        x = dtime
+        xx = ts(int((ees - es).seconds) * 1000)
+        xxx = ts(int((eees - ees).seconds) * 1000)
         await ms.edit("⚠️__**Please wait...**__\n**Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....**")
         await bot.send_document(
                 UID,
                 document=Output_Path,
                 thumb=ph_path,
-                caption=Config.caption.format(filename, inp_size, outp_size , comp_percent),
+                caption=Config.caption.format(filename, org, com , per, x, xx, xxx),
                 progress=progress_for_pyrogram,
                 progress_args=("⚠️__**Please wait...**__\n🌨️ **Uᴩʟᴏᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time()))
         
@@ -268,92 +290,3 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
         
     except Exception as e:
         print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
-
-
-
-async def generate_random_screenshots(input_video, output_folder, num_screenshots):
-    try:
-        duration = await get_video_duration(input_video)
-
-        for _ in range(num_screenshots):
-            random_time = random.uniform(0, duration)
-            output_filename = f"{output_folder}/screenshot_{_ + 1}.png"
-
-            # FFmpeg command to generate a random screenshot
-            cmd = f"ffmpeg -i {input_video} -ss {str(random_time)} -frames:v 1 {output_filename}"
-
-            subprocess.run(cmd, check=True)  # Add check=True to raise an error for non-zero return codes
-
-        print(f"Random screenshots generated successfully in {output_folder} ✅✅")
-        return True
-
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-
-async def get_video_duration(video_file):
-    try:
-        # Get the duration of the video using FFprobe
-        cmd = f"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 {video_file}"
-        result = subprocess.run(
-            cmd,
-            stdout=subprocess.PIPE,
-            text=True,
-            check=True
-        )
-
-        duration = float(result.stdout)
-        return duration
-    except subprocess.CalledProcessError as e:
-        print(f"Error getting video duration: {e}")
-        raise
-
-
-async def download_screenshot(bot, query, no_SS):
-    try:
-        ms = await query.message.edit("**Pʟᴇᴀsᴇ Wᴀɪᴛ...**\n\nDᴏᴡɴʟᴏᴀᴅɪɴɢ Tʜɪs Vɪᴅᴇᴏ Fᴏʀ Gᴇɴᴇʀᴀᴛɪɴɢ Sᴄʀᴇᴇɴsʜᴏᴛ 📸")
-        media = query.message.reply_to_message
-        file = getattr(media , media.media.value)
-        File_Path = f"Screenshot_Generation/{Filename(filename=str(file.file_name), mime_type=str(file.mime_type))}"
-        SS_PATH = f"Screenshot_Generation/{query.from_user.id}"
-        
-        
-        dl = await bot.download_media(
-                        message=file,
-                        file_name=File_Path,
-                        progress=progress_for_pyrogram,
-                        progress_args=("**Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....**", ms, time.time())
-                    )
-        
-        if not os.path.exists(SS_PATH):
-            os.mkdir(SS_PATH)
-        
-        await ms.edit("**Gᴇɴᴇʀᴀᴛɪɴɢ...\n\nSᴄʀᴇᴇɴsʜᴏᴛs ᴘʟᴇᴀsᴇ ʜᴀᴠᴇ ᴘᴀᴛɪᴇɴᴄᴇ.**")
-        done = await generate_random_screenshots(dl, SS_PATH, no_SS)
-
-        if done:
-            await ms.edit("**Gᴇɴᴇʀᴀᴛᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ ✅**\n\nPʟᴇᴀsᴇ ᴡᴀɪᴛ Gʀᴏᴜᴘɪɴɢ Yᴏᴜʀ Sᴄʀᴇᴇɴsʜᴏᴛs...")
-        
-        else:
-            return await ms.edit("**Sᴏᴍᴇᴛʜɪɴɢ Wᴇɴᴛ Wʀᴏɴɢ ☹️**")
-            
-        photo_paths = os.listdir(SS_PATH)
-        photo = []
-
-        for png in photo_paths:
-            photo.append(InputMediaPhoto(f"{SS_PATH}/{png}", png))
-
-        await bot.send_media_group(chat_id= query.message.chat.id, media= photo, reply_to_message_id = query.message.id)
-    
-    except Exception as e:
-        print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
-    
-    try:
-        print("DL ",dl)
-        os.remove(dl)
-        os.remove(SS_PATH)
-        
-    except:
-        shutil.rmtree(SS_PATH)
-        shutil.rmtree(File_Path)
