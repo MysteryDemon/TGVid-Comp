@@ -285,7 +285,8 @@ async def CompressVideo(bot, query, ffmpegcode, c_thumb):
             shutil.rmtree(f"encode/{UID}")
             os.remove(ph_path)
         except BaseException:
-            pass
+            os.remove(f"ffmpeg/{UID}")
+            os.remove(f"ffmpeg/{UID}")
 
         
     except Exception as e:
