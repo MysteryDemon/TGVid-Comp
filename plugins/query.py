@@ -64,9 +64,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
 
         text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{file.file_name}`\n\n**File Size** :- `{humanize.naturalsize(file.file_size)}`"""
         buttons = [[InlineKeyboardButton("Rᴇɴᴀᴍᴇ 📝", callback_data=f"rename-{query.from_user.id}")],
-                   [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{query.from_user.id}")],
-                   [InlineKeyboardButton(
-                       "Sᴄʀᴇᴇɴsʜᴏᴛ Gᴇɴᴇʀᴀᴛᴇ 🖼️", callback_data=f"screenshot-{query.from_user.id}")]]
+                   [InlineKeyboardButton("Cᴏᴍᴘʀᴇss 🗜️", callback_data=f"compress-{query.from_user.id}")]]
 
         await query.message.edit(text=text, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -80,42 +78,6 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
         await db.set_ffmpegcode(query.from_user.id, ffmpeg_code.text)
         await SnowDev.edit("✅️ __**Fғᴍᴘᴇɢ Cᴏᴅᴇ Sᴇᴛ Sᴜᴄᴄᴇssғᴜʟʟʏ**__")
 
-    elif data.startswith('screenshot'):
-        user_id = data.split('-')[1]
-
-        if int(user_id) not in [query.from_user.id, 0]:
-            return await query.answer(f"⚠️ Hᴇʏ {query.from_user.first_name}\nTʜɪs ɪs ɴᴏᴛ ʏᴏᴜʀ ғɪʟᴇ ʏᴏᴜ ᴄᴀɴ'ᴛ ᴅᴏ ᴀɴʏ ᴏᴘᴇʀᴀᴛɪᴏɴ", show_alert=True)
-
-        else:
-            NOSSBTN = [
-                [InlineKeyboardButton(text="5", callback_data='genss_5'), InlineKeyboardButton(
-                    text="10", callback_data='genss_10'), InlineKeyboardButton(text="15", callback_data='genss_15')],
-                [InlineKeyboardButton(text="20", callback_data='genss_20'), InlineKeyboardButton(
-                    text="25", callback_data='genss_25'), InlineKeyboardButton(text="30", callback_data='genss_30')],
-            ]
-            await query.message.edit(text="**Sᴇʟᴇᴄᴛ ᴛʜᴇ ɴᴏ ᴏғ sᴄʀᴇᴇɴsʜᴏᴛ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ғʀᴏᴍ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ 👇**", reply_markup=InlineKeyboardMarkup(NOSSBTN))
-
-    elif data.startswith('genss'):
-
-        no_SS = int(data.split('_')[1])
-
-        if no_SS == 5:
-            await download_screenshot(bot, query, 5)
-
-        elif no_SS == 10:
-            await download_screenshot(bot, query, 5)
-
-        elif no_SS == 15:
-            await download_screenshot(bot, query, 15)
-
-        elif no_SS == 20:
-            await download_screenshot(bot, query, 20)
-
-        elif no_SS == 25:
-            await download_screenshot(bot, query, 25)
-
-        elif no_SS == 30:
-            await download_screenshot(bot, query, 30)
 
     elif data.startswith('compress'):
         user_id = data.split('-')[1]
