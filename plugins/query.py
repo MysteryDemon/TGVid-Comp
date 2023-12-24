@@ -151,7 +151,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
                     [InlineKeyboardButton(
                         text='Sᴇᴛ Fғᴍᴘᴇɢ Cᴏᴅᴇ', callback_data='setffmpeg')],
                     [InlineKeyboardButton(
-                        text='⟸ Bᴀᴄᴋ', callback_data='compress')]
+                        text='⟸ Bᴀᴄᴋ', callback_data=f'compress-{query.from_user.id}')]
                 ]
                 await query.message.edit(text="You Don't Have Any Custom FFMPEG Code. 🛃", reply_markup=InlineKeyboardMarkup(BUTT))
         except Exception as e:
