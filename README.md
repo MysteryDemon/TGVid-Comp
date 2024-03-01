@@ -3,15 +3,18 @@
 
 # 📦 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌
 
-`Video Encoding via FFMPEG` -  Utilize a Telegram bot that encodes videos efficiently using FFMPEG, ensuring high-quality output.
-  
-`File Renaming Capability` - Seamlessly rename files within the bot, simplifying organization and aiding in file management.
-  
-`Metadata Addition` - Enhance video files by incorporating relevant metadata through the bot, making it easier to search and categorize content effectively.
-  
-`Custom Encoding Support` - Implement custom raw FFMPEG code for tailored video encoding, enabling advanced users to personalize encoding settings as needed.
-  
-`Group Encoding Functionality` - Benefit from group encoding features, allowing simultaneous encoding of multiple files for improved productivity and convenience. 
+ - Encodes very fast.
+ - Renames very fast .
+ - Support Encoding of 4Gb files.
+ - Has metadata adding feature 
+ - Permanent Thumbnail support.
+ - Force join for the user for use.
+ - Supports Broadcasts.
+ - Set custom caption.
+ - Has a custom Start-up pic.
+ - Force subscribe available.
+ - Supports ulimited renaming at a time.
+ - Supports group encoding
 
 ## Deploy On
 
