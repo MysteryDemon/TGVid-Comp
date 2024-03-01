@@ -1,14 +1,14 @@
 # Advance Encoder Bot
 
-A Telegram Bot To Encode Videos Using FFMPEG
-
-Has File Renaming Feature
-
-Add Metadata To Video Files
-
-Custom Encoding Support Using Custom Raw FFMPEG code
-
-Supports Group Encoding Feature 
+`Video Encoding via FFMPEG` -  Utilize a Telegram bot that encodes videos efficiently using FFMPEG, ensuring high-quality output.
+  
+`File Renaming Capability` - Seamlessly rename files within the bot, simplifying organization and aiding in file management.
+  
+`Metadata Addition` - Enhance video files by incorporating relevant metadata through the bot, making it easier to search and categorize content effectively.
+  
+`Custom Encoding Support` - Implement custom raw FFMPEG code for tailored video encoding, enabling advanced users to personalize encoding settings as needed.
+  
+`Group Encoding Functionality` - Benefit from group encoding features, allowing simultaneous encoding of multiple files for improved productivity and convenience. 
 
 ## Deploy On
 
