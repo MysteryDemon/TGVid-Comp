@@ -1,4 +1,4 @@
-## Be Sure To Fork And Give A Star 🌟
+## Don't Forget To Give A Star 🌟
 
 
 # Advance Video Encoder Bot
