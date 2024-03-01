@@ -17,7 +17,7 @@
  - Has a custom Start-up pic.
  - Force subscribe available.
  - Supports ulimited renaming at a time.
- - Supports group encoding (add bot to group and give all permission except remain anonymous)
+ - Supports group encoding (add bot to group and give all admin permission except remain anonymous)
 
 ## Deploy On
 
