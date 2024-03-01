@@ -6,7 +6,9 @@ Has File Renaming Feature
 
 Add Metadata To Video Files
 
-Custom Encoding Support 
+Custom Encoding Support Using Custom Raw FFMPEG code
+
+Supports Group Encoding Feature 
 
 ## Deploy On
 
