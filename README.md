@@ -59,6 +59,6 @@ variables for indirectly deployment.
 ## Created By☆
 - `Snowball` 
 
-`Updates Channel` - [Updates Channel] (t.me/Rokubotz)
+`Updates Channel` - [Updates Channel](t.me/Rokubotz)
 
 `Support Group` - [Team Roku](t.me/Team_Roku)
