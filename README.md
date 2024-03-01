@@ -1,4 +1,4 @@
-# Advance Encoder Bot
+# Advance Video Encoder Bot
 
 
 # 📦 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌
