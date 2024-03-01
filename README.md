@@ -1,5 +1,8 @@
 # Advance Encoder Bot
 
+
+# 📦 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌
+
 `Video Encoding via FFMPEG` -  Utilize a Telegram bot that encodes videos efficiently using FFMPEG, ensuring high-quality output.
   
 `File Renaming Capability` - Seamlessly rename files within the bot, simplifying organization and aiding in file management.
@@ -16,14 +19,6 @@
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Snowball-0/SnowEncoderBot)
 
-
-
-# What's The Extra In This Repo And Why This Repo🤔
-● In these days [Railway](railway.app) banning many Repo on the basis of the requirements of the Repo,Railway started doing that because many people broke their terms of use they deploy illegal stuffs.
-
-● As all knows that Railway has much better speed of compressing video in compare to other free service like heroku 
-
-● That's why I edited Real Repo and make it deployable to railway again And also remove some useless Emoji because I hate emoji 😉.
 
 ## Commands
 Add in [@BotFather](https://t.me/BotFather)
