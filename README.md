@@ -2,6 +2,12 @@
 
 A Telegram Bot To Encode Videos Using FFMPEG
 
+Has File Renaming Feature
+
+Add Metadata To Video Files
+
+Custom Encoding Support 
+
 ## Deploy On
 
 `Heroku`
