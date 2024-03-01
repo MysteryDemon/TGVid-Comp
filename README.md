@@ -59,4 +59,6 @@ variables for indirectly deployment.
 ## Created By☆
 - `Snowball` 
 
-Join Our <a href=Updates Channel>t.me/Rokubotz</a> 
+`Updates Channel` - [Updates Channel] (t.me/Rokubotz)
+
+`Support Group` - [Team Roku](t.me/Team_Roku)
